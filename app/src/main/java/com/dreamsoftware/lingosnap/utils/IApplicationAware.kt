@@ -1,0 +1,5 @@
+package com.dreamsoftware.lingosnap.utils
+
+import com.dreamsoftware.brownie.utils.IBrownieApplicationAware
+
+interface IApplicationAware: IBrownieApplicationAware

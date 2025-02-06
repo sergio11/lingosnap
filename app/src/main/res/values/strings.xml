@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">LingoSnap</string>
+
+    <string name="home">Home</string>
+    <string name="settings">Settings</string>
+    <string name="create_outfit">Snap &amp; Learn</string>
+    <string name="nothing_found">Hmm, couldn\'t find a translation.</string>
+    <string name="content_loading_placeholder">Hold tight, magic is happening…</string>
+
+    <!-- Loading Dialog -->
+    <string name="loading_dialog_title_text">Analyzing your snap…</string>
+    <string name="loading_dialog_description_text">Translating and breaking it down for you!</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_loading_title">Turn your world into a language adventure with LingoSnap!</string>
+
+    <!-- Onboarding Screen -->
+    <string name="onboarding_main_title_text">Welcome to LingoSnap, where learning languages is fun and effortless!</string>
+    <string name="onboarding_subtitle_text">Explore languages effortlessly.</string>
+    <string name="onboarding_description_text">Take a photo of any text you encounter, and let LingoSnap translate and teach you—anytime, anywhere.</string>
+    <string name="onboarding_login_button_text">Log In</string>
+    <string name="onboarding_signup_button_text">Join Us</string>
+
+    <!-- Sign in Screen -->
+    <string name="signin_main_title_text">Welcome back to LingoSnap!</string>
+    <string name="signin_secondary_title_text">Let’s dive back into learning!</string>
+    <string name="signin_description_text">Sign in to access your saved LingoSnaps and continue exploring languages.</string>
+    <string name="signin_input_email_label">Email Address</string>
+    <string name="signin_input_email_placeholder">Enter your email</string>
+    <string name="signin_input_password_label">Password</string>
+    <string name="signin_input_password_placeholder">Enter your password</string>
+    <string name="signin_login_button_text">Sign In</string>
+
+    <!-- Sign up Screen -->
+    <string name="signup_main_title_text">Join LingoSnap Today!</string>
+    <string name="signup_secondary_title_text">Start your language journey</string>
+    <string name="signup_description_text">Sign up to explore translations, master new words, and perfect your pronunciation.</string>
+    <string name="signup_input_email_label">Email Address</string>
+    <string name="signup_input_email_placeholder">Enter your email</string>
+    <string name="signup_input_password_label">Password</string>
+    <string name="signup_input_password_placeholder">Create a password</string>
+    <string name="signup_input_confirm_password_label">Confirm Password</string>
+    <string name="signup_input_confirm_password_placeholder">Re-enter your password</string>
+    <string name="signup_signup_button_text">Sign Up</string>
+    <string name="signup_already_has_account_text">Already have an account?</string>
+
+    <!-- Generic Error Messages -->
+    <string name="generic_form_invalid_data_provided">Something\'s off—let’s check your details and try again.</string>
+    <string name="generic_error_exception">Oops, something went wrong. Give it another go!</string>
+
+    <!-- Validation Messages -->
+    <string name="invalid_email_message">Hmm, that doesn\'t look like a valid email.</string>
+    <string name="short_password_message">Password needs to be at least %1$d characters long.</string>
+    <string name="passwords_do_not_match_message">Passwords don’t match—let’s fix that!</string>
+
+    <!-- Settings -->
+    <string name="settings_screen_title">Settings</string>
+    <string name="settings_screen_share">Share LingoSnap</string>
+    <string name="settings_screen_about">About LingoSnap</string>
+    <string name="settings_screen_logout">Log Out</string>
+
+    <!-- Logout Dialog -->
+    <string name="close_session_dialog_title">Ready to take a break?</string>
+    <string name="close_session_dialog_description">Logging out will end your session, but your LingoSnaps will be here waiting for your return.</string>
+    <string name="close_session_dialog_cancel">Stay Logged In</string>
+    <string name="close_session_dialog_accept">Log Out</string>
+
+    <!-- About Info -->
+    <string name="about_info">LingoSnap is your pocket-sized language tutor. Capture real-world text to unlock translations, grammar insights, and pronunciation tips. Let\'s explore languages together!</string>
+    <string name="share_message">Check out LingoSnap! Your go-to app for turning real-world text into language lessons. Join me in this learning adventure!</string>
+
+    <!-- Home -->
+    <string name="home_search_text_input_label">Find a Translation</string>
+    <string name="home_search_text_input_placeholder">Type a word or phrase to explore…</string>
+
+    <!-- Capture & Learn -->
+    <string name="create_outfit_save_button_text">Save This Lesson</string>
+    <string name="create_outfit_cancel_button_text">Never Mind</string>
+    <string name="create_outfit_question_text_field_label">Ask about this text!</string>
+    <string name="create_outfit_question_text_field_placeholder">Got a question? Type it here…</string>
+
+    <!-- Delete Translation Dialog -->
+    <string name="delete_outfit_dialog_title">Delete This Lesson?</string>
+    <string name="delete_outfit_dialog_description">Are you sure you want to delete this saved lesson? You won\'t be able to review it later.</string>
+    <string name="delete_outfit_dialog_cancel">Keep It</string>
+    <string name="delete_outfit_dialog_accept">Delete It</string>
+
+    <!-- Translation Detail -->
+    <string name="outfit_detail_open_chat_text">Learn More</string>
+    <string name="outfit_detail_delete_button_text">Remove This Lesson</string>
+
+    <!-- Network Connection Lost Dialog -->
+    <string name="generic_lost_network_connectivity_dialog_title">Uh-oh, No Internet!</string>
+    <string name="generic_lost_network_connectivity_dialog_description">Looks like we lost connection. Let’s get back online to continue learning.</string>
+    <string name="generic_lost_network_connectivity_dialog_open_settings_button_text">Check Connection</string>
+
+    <!-- Translation Detail -->
+    <string name="outfit_detail_user_question_title">Your Question</string>
+    <string name="outfit_detail_photo_context_title">Here’s What This Means</string>
+</resources>
