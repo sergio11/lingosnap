@@ -3,23 +3,23 @@ package com.dreamsoftware.lingosnap.di
 import com.dreamsoftware.lingosnap.domain.model.AuthRequestBO
 import com.dreamsoftware.lingosnap.domain.model.SignUpBO
 import com.dreamsoftware.lingosnap.domain.repository.IImageRepository
-import com.dreamsoftware.lingosnap.domain.repository.IOutfitRepository
+import com.dreamsoftware.lingosnap.domain.repository.ILingoSnapRepository
 import com.dreamsoftware.lingosnap.domain.repository.IMultiModalLanguageModelRepository
 import com.dreamsoftware.lingosnap.domain.repository.IPreferenceRepository
 import com.dreamsoftware.lingosnap.domain.repository.IUserRepository
 import com.dreamsoftware.lingosnap.domain.service.ISoundPlayerService
 import com.dreamsoftware.lingosnap.domain.service.ITTSService
 import com.dreamsoftware.lingosnap.domain.service.ITranscriptionService
-import com.dreamsoftware.lingosnap.domain.usecase.AddOutfitMessageUseCase
-import com.dreamsoftware.lingosnap.domain.usecase.CreateOutfitUseCase
-import com.dreamsoftware.lingosnap.domain.usecase.DeleteOutfitByIdUseCase
+import com.dreamsoftware.lingosnap.domain.usecase.AddLingoSnapMessageUseCase
+import com.dreamsoftware.lingosnap.domain.usecase.CreateLingoSnapUseCase
+import com.dreamsoftware.lingosnap.domain.usecase.DeleteLingoSnapByIdUseCase
 import com.dreamsoftware.lingosnap.domain.usecase.TranscribeUserQuestionUseCase
 import com.dreamsoftware.lingosnap.domain.usecase.EndUserSpeechCaptureUseCase
-import com.dreamsoftware.lingosnap.domain.usecase.GetAllOutfitsByUserUseCase
+import com.dreamsoftware.lingosnap.domain.usecase.GetAllLingoSnapsByUserUseCase
 import com.dreamsoftware.lingosnap.domain.usecase.GetAssistantMutedStatusUseCase
 import com.dreamsoftware.lingosnap.domain.usecase.GetAuthenticateUserDetailUseCase
-import com.dreamsoftware.lingosnap.domain.usecase.GetOutfitByIdUseCase
-import com.dreamsoftware.lingosnap.domain.usecase.SearchOutfitUseCase
+import com.dreamsoftware.lingosnap.domain.usecase.GetLingoSnapByIdUseCase
+import com.dreamsoftware.lingosnap.domain.usecase.SearchLingoSnapUseCase
 import com.dreamsoftware.lingosnap.domain.usecase.SignInUseCase
 import com.dreamsoftware.lingosnap.domain.usecase.SignOffUseCase
 import com.dreamsoftware.lingosnap.domain.usecase.SignUpUseCase
@@ -98,41 +98,41 @@ class UseCasesModule {
 
     @Provides
     @ViewModelScoped
-    fun provideCreateOutfitUseCase(
+    fun provideCreateLingoSnapUseCase(
         userRepository: IUserRepository,
         imageRepository: IImageRepository,
-        outfitRepository: IOutfitRepository,
+        lingoSnapRepository: ILingoSnapRepository,
         multiModalLanguageModelRepository: IMultiModalLanguageModelRepository
-    ): CreateOutfitUseCase =
-        CreateOutfitUseCase(
+    ): CreateLingoSnapUseCase =
+        CreateLingoSnapUseCase(
             userRepository = userRepository,
             imageRepository = imageRepository,
-            outfitRepository = outfitRepository,
+            lingoSnapRepository = lingoSnapRepository,
             multiModalLanguageModelRepository = multiModalLanguageModelRepository
         )
 
     @Provides
     @ViewModelScoped
-    fun provideDeleteOutfitByIdUseCase(
+    fun provideDeleteLingoSnapByIdUseCase(
         userRepository: IUserRepository,
         imageRepository: IImageRepository,
-        outfitRepository: IOutfitRepository
-    ): DeleteOutfitByIdUseCase =
-        DeleteOutfitByIdUseCase(
+        lingoSnapRepository: ILingoSnapRepository
+    ): DeleteLingoSnapByIdUseCase =
+        DeleteLingoSnapByIdUseCase(
             userRepository = userRepository,
             imageRepository = imageRepository,
-            outfitRepository = outfitRepository
+            lingoSnapRepository = lingoSnapRepository
         )
 
     @Provides
     @ViewModelScoped
-    fun provideGetAllOutfitByUserUseCase(
+    fun provideGetAllLingoSnapByUserUseCase(
         userRepository: IUserRepository,
-        outfitRepository: IOutfitRepository
-    ): GetAllOutfitsByUserUseCase =
-        GetAllOutfitsByUserUseCase(
+        lingoSnapRepository: ILingoSnapRepository
+    ): GetAllLingoSnapsByUserUseCase =
+        GetAllLingoSnapsByUserUseCase(
             userRepository = userRepository,
-            outfitRepository = outfitRepository
+            lingoSnapRepository = lingoSnapRepository
         )
 
     @Provides
@@ -146,13 +146,13 @@ class UseCasesModule {
 
     @Provides
     @ViewModelScoped
-    fun provideGetOutfitByIdUseCase(
+    fun provideGetLingoSnapByIdUseCase(
         userRepository: IUserRepository,
-        outfitRepository: IOutfitRepository
-    ): GetOutfitByIdUseCase =
-        GetOutfitByIdUseCase(
+        lingoSnapRepository: ILingoSnapRepository
+    ): GetLingoSnapByIdUseCase =
+        GetLingoSnapByIdUseCase(
             userRepository = userRepository,
-            outfitRepository = outfitRepository
+            lingoSnapRepository = lingoSnapRepository
         )
 
     @Provides
@@ -166,14 +166,14 @@ class UseCasesModule {
 
     @Provides
     @ViewModelScoped
-    fun provideAddOutfitQuestionUseCase(
+    fun provideAddLingoSnapQuestionUseCase(
         userRepository: IUserRepository,
-        outfitRepository: IOutfitRepository,
+        lingoSnapRepository: ILingoSnapRepository,
         multiModalLanguageModelRepository: IMultiModalLanguageModelRepository
-    ): AddOutfitMessageUseCase =
-        AddOutfitMessageUseCase(
+    ): AddLingoSnapMessageUseCase =
+        AddLingoSnapMessageUseCase(
             userRepository = userRepository,
-            outfitRepository = outfitRepository,
+            lingoSnapRepository = lingoSnapRepository,
             multiModalLanguageModelRepository = multiModalLanguageModelRepository
         )
 
@@ -210,12 +210,12 @@ class UseCasesModule {
 
     @Provides
     @ViewModelScoped
-    fun provideSearchOutfitUseCase(
+    fun provideSearchLingoSnapUseCase(
         userRepository: IUserRepository,
-        outfitRepository: IOutfitRepository,
-    ): SearchOutfitUseCase =
-        SearchOutfitUseCase(
+        lingoSnapRepository: ILingoSnapRepository,
+    ): SearchLingoSnapUseCase =
+        SearchLingoSnapUseCase(
             userRepository = userRepository,
-            outfitRepository = outfitRepository
+            lingoSnapRepository = lingoSnapRepository
         )
 }

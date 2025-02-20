@@ -5,7 +5,7 @@ import com.dreamsoftware.brownie.core.IBrownieErrorMapper
 import com.dreamsoftware.lingosnap.ui.screens.account.signin.SignInScreenSimpleErrorMapper
 import com.dreamsoftware.lingosnap.ui.screens.account.signup.SignUpScreenSimpleErrorMapper
 import com.dreamsoftware.lingosnap.ui.screens.chat.ChatSimpleErrorMapper
-import com.dreamsoftware.lingosnap.ui.screens.detail.OutfitDetailScreenSimpleErrorMapper
+import com.dreamsoftware.lingosnap.ui.screens.detail.LingoSnapDetailScreenSimpleErrorMapper
 import com.dreamsoftware.lingosnap.ui.screens.home.HomeSimpleErrorMapper
 import dagger.Module
 import dagger.Provides
@@ -52,18 +52,18 @@ class UiModule {
 
     @Provides
     @ViewModelScoped
-    @OutfitDetailErrorMapper
+    @LingoSnapDetailErrorMapper
     fun provideOutfitDetailErrorMapper(
         @ApplicationContext context: Context
     ): IBrownieErrorMapper =
-        OutfitDetailScreenSimpleErrorMapper(context = context)
+        LingoSnapDetailScreenSimpleErrorMapper(context = context)
 
 
     @Provides
     @ViewModelScoped
-    @CreateOutfitErrorMapper
+    @CreateLingoSnapErrorMapper
     fun provideCreateOutfitScreenSimpleErrorMapper(
         @ApplicationContext context: Context
     ): IBrownieErrorMapper =
-        OutfitDetailScreenSimpleErrorMapper(context = context)
+        LingoSnapDetailScreenSimpleErrorMapper(context = context)
 }

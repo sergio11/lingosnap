@@ -69,14 +69,14 @@ fun HomeScreenContent(
                 }
             }
             BrownieDialog(
-                isVisible = confirmDeleteOutfit != null,
+                isVisible = confirmDeleteLingoSnap != null,
                 mainLogoRes = R.drawable.main_logo,
-                titleRes = R.string.delete_outfit_dialog_title,
-                descriptionRes = R.string.delete_outfit_dialog_description,
-                cancelRes = R.string.delete_outfit_dialog_cancel,
-                acceptRes = R.string.delete_outfit_dialog_accept,
-                onCancelClicked = actionListener::onDeleteOutfitCancelled,
-                onAcceptClicked = actionListener::onDeleteOutfitConfirmed,
+                titleRes = R.string.delete_lingo_snap_dialog_title,
+                descriptionRes = R.string.delete_lingo_snap_dialog_description,
+                cancelRes = R.string.delete_lingo_snap_dialog_cancel,
+                acceptRes = R.string.delete_lingo_snap_dialog_accept,
+                onCancelClicked = actionListener::onDeleteLingoSnapCancelled,
+                onAcceptClicked = actionListener::onDeleteLingoSnapConfirmed,
             )
             BrownieScreenContent(
                 hasTopBar = false,
@@ -124,7 +124,7 @@ fun HomeScreenContent(
                     }
                     if (isLoading) {
                         BrownieColumnProgressIndicator(textIndicatorRes = R.string.content_loading_placeholder)
-                    } else if (outfitList.isEmpty()) {
+                    } else if (lingoSnapList.isEmpty()) {
                         BrownieColumnPlaceHolder(
                             titleRes = R.string.nothing_found,
                             iconRes = R.drawable.ic_no_data_found
@@ -161,15 +161,15 @@ private fun OutfitList(
                     )
                     .nestedScroll(nestedScrollConnection),
             ) {
-                items(outfitList.size) { idx ->
-                    val outfit = outfitList[idx]
+                items(lingoSnapList.size) { idx ->
+                    val outfit = lingoSnapList[idx]
                     BrownieCard(
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(10.dp)
                             .height(250.dp)
                             .clickable {
-                                actionListener.onOutfitClicked(outfit)
+                                actionListener.onLingoSnapClicked(outfit)
                             },
                         border = BorderStroke(5.dp, secondary)
                     ) {
@@ -190,7 +190,7 @@ private fun OutfitList(
                                 iconTintColor = primary,
                                 iconRes = R.drawable.ic_detail
                             ) {
-                                actionListener.onOutfitDetailClicked(outfit)
+                                actionListener.onLingoSnapDetailClicked(outfit)
                             }
                             BrownieIconButton(
                                 containerSize = 40.dp,
@@ -198,7 +198,7 @@ private fun OutfitList(
                                 iconTintColor = primary,
                                 iconRes = R.drawable.ic_delete
                             ) {
-                                actionListener.onOutfitDeleted(outfit)
+                                actionListener.onLingoSnapDeleted(outfit)
                             }
                         }
                         BrownieText(

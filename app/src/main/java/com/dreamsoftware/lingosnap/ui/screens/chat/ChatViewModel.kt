@@ -6,12 +6,12 @@ import com.dreamsoftware.brownie.core.SideEffect
 import com.dreamsoftware.brownie.core.UiState
 import com.dreamsoftware.brownie.utils.EMPTY
 import com.dreamsoftware.lingosnap.di.ChatErrorMapper
-import com.dreamsoftware.lingosnap.domain.model.OutfitBO
-import com.dreamsoftware.lingosnap.domain.model.OutfitMessageBO
-import com.dreamsoftware.lingosnap.domain.usecase.AddOutfitMessageUseCase
+import com.dreamsoftware.lingosnap.domain.model.LingoSnapBO
+import com.dreamsoftware.lingosnap.domain.model.LingoSnapMessageBO
+import com.dreamsoftware.lingosnap.domain.usecase.AddLingoSnapMessageUseCase
 import com.dreamsoftware.lingosnap.domain.usecase.EndUserSpeechCaptureUseCase
 import com.dreamsoftware.lingosnap.domain.usecase.GetAssistantMutedStatusUseCase
-import com.dreamsoftware.lingosnap.domain.usecase.GetOutfitByIdUseCase
+import com.dreamsoftware.lingosnap.domain.usecase.GetLingoSnapByIdUseCase
 import com.dreamsoftware.lingosnap.domain.usecase.StopTextToSpeechUseCase
 import com.dreamsoftware.lingosnap.domain.usecase.TextToSpeechUseCase
 import com.dreamsoftware.lingosnap.domain.usecase.TranscribeUserQuestionUseCase
@@ -22,12 +22,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ChatViewModel @Inject constructor(
-    private val getOutfitByIdUseCase: GetOutfitByIdUseCase,
+    private val getLingoSnapByIdUseCase: GetLingoSnapByIdUseCase,
     private val transcribeUserQuestionUseCase: TranscribeUserQuestionUseCase,
     private val endUserSpeechCaptureUseCase: EndUserSpeechCaptureUseCase,
     private val textToSpeechUseCase: TextToSpeechUseCase,
     private val stopTextToSpeechUseCase: StopTextToSpeechUseCase,
-    private val addOutfitMessageUseCase: AddOutfitMessageUseCase,
+    private val addLingoSnapMessageUseCase: AddLingoSnapMessageUseCase,
     private val updateAssistantMutedStatusUseCase: UpdateAssistantMutedStatusUseCase,
     private val getAssistantMutedStatusUseCase: GetAssistantMutedStatusUseCase,
     @ChatErrorMapper private val errorMapper: IBrownieErrorMapper
@@ -40,8 +40,8 @@ class ChatViewModel @Inject constructor(
             showLoadingState = false
         )
         executeUseCaseWithParams(
-            useCase = getOutfitByIdUseCase,
-            params = GetOutfitByIdUseCase.Params(id = id),
+            useCase = getLingoSnapByIdUseCase,
+            params = GetLingoSnapByIdUseCase.Params(id = id),
             onSuccess = ::onGetOutfitCompletedSuccessfully,
             onMapExceptionToState = ::onMapExceptionToState
         )
@@ -113,9 +113,9 @@ class ChatViewModel @Inject constructor(
     private fun onListenForTranscriptionCompleted(transcription: String) {
         updateState { it.copy(isListening = false) }
         executeUseCaseWithParams(
-            useCase = addOutfitMessageUseCase,
-            params = AddOutfitMessageUseCase.Params(
-                outfitId = uiState.value.outfitId,
+            useCase = addLingoSnapMessageUseCase,
+            params = AddLingoSnapMessageUseCase.Params(
+                lingoSnapId = uiState.value.lingoSnapId,
                 question = transcription
             ),
             onSuccess = ::onGetOutfitCompletedSuccessfully,
@@ -123,11 +123,11 @@ class ChatViewModel @Inject constructor(
         )
     }
 
-    private fun onGetOutfitCompletedSuccessfully(outfitBO: OutfitBO) {
-        updateState { it.copy(outfitId = outfitBO.uid, messageList = outfitBO.messages) }
+    private fun onGetOutfitCompletedSuccessfully(lingoSnapBO: LingoSnapBO) {
+        updateState { it.copy(lingoSnapId = lingoSnapBO.uid, messageList = lingoSnapBO.messages) }
         doOnUiState {
             if(!isAssistantMuted) {
-                speakMessage(text = outfitBO.messages.last().text)
+                speakMessage(text = lingoSnapBO.messages.last().text)
             }
         }
     }
@@ -165,14 +165,14 @@ class ChatViewModel @Inject constructor(
 data class ChatUiState(
     override val isLoading: Boolean = false,
     override val errorMessage: String? = null,
-    val outfitId: String = String.EMPTY,
+    val lingoSnapId: String = String.EMPTY,
     val infoMessage: String = String.EMPTY,
     val isAssistantResponseLoading: Boolean = false,
     val isAssistantMuted: Boolean = false,
     val isAssistantSpeaking: Boolean = false,
     val isListening: Boolean = false,
     val lastQuestion: String = String.EMPTY,
-    val messageList: List<OutfitMessageBO> = emptyList()
+    val messageList: List<LingoSnapMessageBO> = emptyList()
 ): UiState<ChatUiState>(isLoading, errorMessage) {
     override fun copyState(isLoading: Boolean, errorMessage: String?): ChatUiState =
         copy(isLoading = isLoading, errorMessage = errorMessage)

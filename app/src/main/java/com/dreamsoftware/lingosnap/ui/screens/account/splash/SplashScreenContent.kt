@@ -28,7 +28,7 @@ fun SplashScreenContent(
     BrownieScreenContent(
         enableVerticalScroll = false,
         hasTopBar = false,
-        backgroundRes = R.drawable.main_background
+        backgroundRes = R.drawable.splash_background
     ) {
         Column(
             modifier = Modifier.fillMaxSize().padding(horizontal = 32.dp),

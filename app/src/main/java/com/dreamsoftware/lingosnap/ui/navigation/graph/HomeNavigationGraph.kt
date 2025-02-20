@@ -6,8 +6,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.dreamsoftware.lingosnap.ui.navigation.Screens
 import com.dreamsoftware.lingosnap.ui.screens.chat.ChatScreen
-import com.dreamsoftware.lingosnap.ui.screens.create.CreateOutfitScreen
-import com.dreamsoftware.lingosnap.ui.screens.detail.OutfitDetailScreen
+import com.dreamsoftware.lingosnap.ui.screens.create.CreateLingoSnapScreen
+import com.dreamsoftware.lingosnap.ui.screens.detail.LingoSnapDetailScreen
 import com.dreamsoftware.lingosnap.ui.screens.home.HomeScreen
 import com.dreamsoftware.lingosnap.ui.screens.settings.SettingsScreen
 
@@ -34,10 +34,10 @@ fun NavGraphBuilder.HomeNavigationGraph(
         }
 
         composable(
-            route = Screens.Main.Home.CreateOutfit.route
+            route = Screens.Main.Home.CreateLingoSnap.route
         ) {
             with(navController) {
-                CreateOutfitScreen(
+                CreateLingoSnapScreen(
                     onGoToChat = {
                         popBackStack()
                         navigate(Screens.Main.Home.Chat.buildRoute(it))
@@ -55,7 +55,7 @@ fun NavGraphBuilder.HomeNavigationGraph(
             navBackStackEntry.arguments?.let { args ->
                 Screens.Main.Home.Detail.parseArgs(args)?.let {
                     with(navController) {
-                        OutfitDetailScreen(
+                        LingoSnapDetailScreen(
                             args = it,
                             onGoToChat = {
                                 navigate(Screens.Main.Home.Chat.buildRoute(it))

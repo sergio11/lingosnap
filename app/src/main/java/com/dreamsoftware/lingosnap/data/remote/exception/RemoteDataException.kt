@@ -11,13 +11,13 @@ class SignUpRemoteDataException(message: String? = null, cause: Throwable? = nul
 class SavePictureRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
 class DeletePictureRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
 
-// Outfit Data Source
-class SearchOutfitRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
-class CreateOutfitRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
-class AddOutfitMessageRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
-class FetchOutfitByIdRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
-class FetchAllOutfitRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
-class DeleteOutfitByIdRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
+// LingoSnap Data Source
+class SearchLingoSnapRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
+class CreateLingoSnapRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
+class AddLingoSnapMessageRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
+class FetchLingoSnapByIdRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
+class FetchAllLingoSnapRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
+class DeleteLingoSnapByIdRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
 
 // Multimodal LLM Data Source
 class ResolveQuestionFromContextRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
