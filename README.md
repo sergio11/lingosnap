@@ -1,7 +1,10 @@
-# LingoSnap 🌍📸🗣️  
-**Turn real-world text into language lessons.**  
+# LingoSnap 🌍📸🗣️  **Turn real-world text into language lessons.**  
+
+<img width="auto" height="200px" align="left" src="doc/main_logo.png" />
 
 LingoSnap is an AI-powered app designed to help you understand and learn languages naturally. Traveling abroad? Seeing a sign in a language you don’t understand? Take a photo and ask any question in your native language. LingoSnap will not only provide a translation but also explain key vocabulary and grammar concepts while guiding you through pronunciation. Every interaction is saved as a **LingoSnap**, allowing you to revisit it anytime for review.  
+
+This app, **LingoSnap**, includes images and resources designed by [Freepik](https://www.freepik.com). We would like to thank Freepik for their incredible design resources. The images used in the app are provided with attribution, as required by Freepik's licensing terms. For more information on Freepik's resources, visit [www.freepik.com](https://www.freepik.com).
 
 <p align="center">
   <img src="https://img.shields.io/badge/Android%20Studio-3DDC84.svg?style=for-the-badge&logo=android-studio&logoColor=white" />
@@ -16,6 +19,8 @@ LingoSnap is an AI-powered app designed to help you understand and learn languag
   <img width="250px" src="doc/screenshots/previewed/image1.jpeg" />
   <img width="250px" src="doc/screenshots/previewed/image2.jpeg" />
   <img width="250px" src="doc/screenshots/previewed/image3.jpeg" />
+  <img width="250px" src="doc/screenshots/previewed/image4.jpeg" />
+  <img width="250px" src="doc/screenshots/previewed/image5.jpeg" />
 </p>
 
 ## 🚀 Key Features  
