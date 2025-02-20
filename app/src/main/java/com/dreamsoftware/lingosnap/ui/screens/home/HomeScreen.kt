@@ -16,8 +16,8 @@ fun HomeScreen(
         onInit = { loadData() },
         onSideEffect = {
             when(it) {
-                is HomeSideEffects.OpenOutfitChat -> onGoToChat(it.id)
-                is HomeSideEffects.OpenOutfitDetail -> onGoToDetail(it.id)
+                is HomeSideEffects.OpenLingoSnapChat -> onGoToChat(it.id)
+                is HomeSideEffects.OpenLingoSnapDetail -> onGoToDetail(it.id)
             }
         }
     ) { uiState ->

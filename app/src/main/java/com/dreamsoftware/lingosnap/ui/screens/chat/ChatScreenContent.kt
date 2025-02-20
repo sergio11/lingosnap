@@ -46,8 +46,8 @@ import com.dreamsoftware.brownie.component.BrownieType
 import com.dreamsoftware.brownie.component.screen.BrownieScreenContent
 import com.dreamsoftware.brownie.utils.EMPTY
 import com.dreamsoftware.lingosnap.R
-import com.dreamsoftware.lingosnap.domain.model.OutfitMessageBO
-import com.dreamsoftware.lingosnap.domain.model.OutfitMessageRoleEnum
+import com.dreamsoftware.lingosnap.domain.model.LingoSnapMessageBO
+import com.dreamsoftware.lingosnap.domain.model.LingoSnapMessageRoleEnum
 import com.dreamsoftware.lingosnap.ui.components.AnimatedMicButtonWithTranscript
 import com.dreamsoftware.lingosnap.ui.components.ChatMessageCard
 import com.dreamsoftware.lingosnap.ui.components.LoadingDialog
@@ -174,7 +174,7 @@ fun ChatScreenContent(
 @Composable
 private fun ChatMessagesList(
     modifier: Modifier = Modifier,
-    messageList: List<OutfitMessageBO>
+    messageList: List<LingoSnapMessageBO>
 ) {
     val lazyListState = rememberLazyListState()
     if(messageList.isNotEmpty()) {
@@ -195,7 +195,7 @@ private fun ChatMessagesList(
                 ChatMessageCard(
                     modifier = Modifier
                         .align(
-                            if (chatMessage.role == OutfitMessageRoleEnum.USER) {
+                            if (chatMessage.role == LingoSnapMessageRoleEnum.USER) {
                                 Alignment.CenterEnd
                             } else {
                                 Alignment.CenterStart
@@ -203,7 +203,7 @@ private fun ChatMessagesList(
                         )
                         .widthIn(max = this.maxWidth / 1.5f),
                     messageContent = chatMessage.text,
-                    role = if (chatMessage.role == OutfitMessageRoleEnum.USER) {
+                    role = if (chatMessage.role == LingoSnapMessageRoleEnum.USER) {
                         Role.USER
                     }  else {
                         Role.RESPONDER

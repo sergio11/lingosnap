@@ -3,18 +3,18 @@ package com.dreamsoftware.lingosnap.di
 import com.dreamsoftware.brownie.utils.IBrownieOneSideMapper
 import com.dreamsoftware.lingosnap.data.remote.datasource.IAuthRemoteDataSource
 import com.dreamsoftware.lingosnap.data.remote.datasource.IImageDataSource
-import com.dreamsoftware.lingosnap.data.remote.datasource.IOutfitDataSource
+import com.dreamsoftware.lingosnap.data.remote.datasource.ILingoSnapDataSource
 import com.dreamsoftware.lingosnap.data.remote.datasource.impl.AuthRemoteDataSourceImpl
 import com.dreamsoftware.lingosnap.data.remote.datasource.impl.ImageDataSourceImpl
-import com.dreamsoftware.lingosnap.data.remote.datasource.impl.OutfitDataSourceImpl
+import com.dreamsoftware.lingosnap.data.remote.datasource.impl.LingoSnapDataSourceImpl
 import com.dreamsoftware.lingosnap.data.remote.dto.AddMessageDTO
 import com.dreamsoftware.lingosnap.data.remote.dto.AuthUserDTO
-import com.dreamsoftware.lingosnap.data.remote.dto.CreateOutfitDTO
-import com.dreamsoftware.lingosnap.data.remote.dto.OutfitDTO
-import com.dreamsoftware.lingosnap.data.remote.mapper.AddOutfitMessageRemoteMapper
-import com.dreamsoftware.lingosnap.data.remote.mapper.CreateOutfitRemoteMapper
+import com.dreamsoftware.lingosnap.data.remote.dto.CreateLingoSnapDTO
+import com.dreamsoftware.lingosnap.data.remote.dto.LingoSnapDTO
+import com.dreamsoftware.lingosnap.data.remote.mapper.AddLingoSnapMessageRemoteMapper
+import com.dreamsoftware.lingosnap.data.remote.mapper.CreateLingoSnapRemoteMapper
 import com.dreamsoftware.lingosnap.data.remote.mapper.UserAuthenticatedMapper
-import com.dreamsoftware.lingosnap.data.remote.mapper.OutfitRemoteMapper
+import com.dreamsoftware.lingosnap.data.remote.mapper.LingoSnapRemoteMapper
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -44,15 +44,15 @@ class FirebaseModule {
 
     @Provides
     @Singleton
-    fun provideUserQuestionRemoteMapper(): IBrownieOneSideMapper<Map<String, Any?>, OutfitDTO> = OutfitRemoteMapper()
+    fun provideUserQuestionRemoteMapper(): IBrownieOneSideMapper<Map<String, Any?>, LingoSnapDTO> = LingoSnapRemoteMapper()
 
     @Provides
     @Singleton
-    fun provideSaveUserQuestionRemoteMapper(): IBrownieOneSideMapper<CreateOutfitDTO, Map<String, Any?>> = CreateOutfitRemoteMapper()
+    fun provideSaveUserQuestionRemoteMapper(): IBrownieOneSideMapper<CreateLingoSnapDTO, Map<String, Any?>> = CreateLingoSnapRemoteMapper()
 
     @Provides
     @Singleton
-    fun provideAddOutfitMessageRemoteMapper(): IBrownieOneSideMapper<AddMessageDTO, List<Map<String, String>>> = AddOutfitMessageRemoteMapper()
+    fun provideAddOutfitMessageRemoteMapper(): IBrownieOneSideMapper<AddMessageDTO, List<Map<String, String>>> = AddLingoSnapMessageRemoteMapper()
 
     /**
      * Provides a singleton instance of FirebaseAuth.
@@ -108,11 +108,11 @@ class FirebaseModule {
     @Singleton
     fun provideOutfitDataSource(
         firestore: FirebaseFirestore,
-        saveUserQuestionMapper: IBrownieOneSideMapper<CreateOutfitDTO, Map<String, Any?>>,
+        saveUserQuestionMapper: IBrownieOneSideMapper<CreateLingoSnapDTO, Map<String, Any?>>,
         addOutfitMessageMapper: IBrownieOneSideMapper<AddMessageDTO, List<Map<String, String>>>,
-        userQuestionMapper: IBrownieOneSideMapper<Map<String, Any?>, OutfitDTO>,
+        userQuestionMapper: IBrownieOneSideMapper<Map<String, Any?>, LingoSnapDTO>,
         @IoDispatcher dispatcher: CoroutineDispatcher
-    ): IOutfitDataSource = OutfitDataSourceImpl(
+    ): ILingoSnapDataSource = LingoSnapDataSourceImpl(
         firestore,
         saveUserQuestionMapper,
         addOutfitMessageMapper,

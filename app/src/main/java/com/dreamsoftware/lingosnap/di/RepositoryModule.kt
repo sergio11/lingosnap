@@ -4,30 +4,30 @@ import com.dreamsoftware.brownie.utils.IBrownieOneSideMapper
 import com.dreamsoftware.lingosnap.data.local.preferences.datasource.IPreferencesDataSource
 import com.dreamsoftware.lingosnap.data.remote.datasource.IAuthRemoteDataSource
 import com.dreamsoftware.lingosnap.data.remote.datasource.IImageDataSource
-import com.dreamsoftware.lingosnap.data.remote.datasource.IOutfitDataSource
+import com.dreamsoftware.lingosnap.data.remote.datasource.ILingoSnapDataSource
 import com.dreamsoftware.lingosnap.data.remote.datasource.IMultiModalLanguageModelDataSource
 import com.dreamsoftware.lingosnap.data.remote.dto.AddMessageDTO
 import com.dreamsoftware.lingosnap.data.remote.dto.AuthUserDTO
-import com.dreamsoftware.lingosnap.data.remote.dto.OutfitDTO
+import com.dreamsoftware.lingosnap.data.remote.dto.LingoSnapDTO
 import com.dreamsoftware.lingosnap.data.remote.dto.ResolveQuestionDTO
-import com.dreamsoftware.lingosnap.data.remote.dto.CreateOutfitDTO
+import com.dreamsoftware.lingosnap.data.remote.dto.CreateLingoSnapDTO
 import com.dreamsoftware.lingosnap.data.repository.impl.IMultiModalLanguageModelRepositoryImpl
 import com.dreamsoftware.lingosnap.data.repository.impl.ImageRepositoryImpl
-import com.dreamsoftware.lingosnap.data.repository.impl.OutfitRepositoryImpl
+import com.dreamsoftware.lingosnap.data.repository.impl.LingoSnapRepositoryImpl
 import com.dreamsoftware.lingosnap.data.repository.impl.PreferenceRepositoryImpl
 import com.dreamsoftware.lingosnap.data.repository.impl.UserRepositoryImpl
-import com.dreamsoftware.lingosnap.data.repository.mapper.AddOutfitMessageMapper
+import com.dreamsoftware.lingosnap.data.repository.mapper.AddLingoSnapMessageMapper
 import com.dreamsoftware.lingosnap.data.repository.mapper.AuthUserMapper
-import com.dreamsoftware.lingosnap.data.repository.mapper.OutfitMapper
+import com.dreamsoftware.lingosnap.data.repository.mapper.LingoSnapMapper
 import com.dreamsoftware.lingosnap.data.repository.mapper.ResolveQuestionMapper
-import com.dreamsoftware.lingosnap.data.repository.mapper.CreateOutfitMapper
+import com.dreamsoftware.lingosnap.data.repository.mapper.CreateLingoSnapMapper
 import com.dreamsoftware.lingosnap.domain.model.AddMessageBO
 import com.dreamsoftware.lingosnap.domain.model.AuthUserBO
-import com.dreamsoftware.lingosnap.domain.model.OutfitBO
+import com.dreamsoftware.lingosnap.domain.model.LingoSnapBO
 import com.dreamsoftware.lingosnap.domain.model.ResolveQuestionBO
-import com.dreamsoftware.lingosnap.domain.model.CreateOutfitBO
+import com.dreamsoftware.lingosnap.domain.model.CreateLingoSnapBO
 import com.dreamsoftware.lingosnap.domain.repository.IImageRepository
-import com.dreamsoftware.lingosnap.domain.repository.IOutfitRepository
+import com.dreamsoftware.lingosnap.domain.repository.ILingoSnapRepository
 import com.dreamsoftware.lingosnap.domain.repository.IMultiModalLanguageModelRepository
 import com.dreamsoftware.lingosnap.domain.repository.IPreferenceRepository
 import com.dreamsoftware.lingosnap.domain.repository.IUserRepository
@@ -48,11 +48,11 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideOutfitMapper(): IBrownieOneSideMapper<OutfitDTO, OutfitBO> = OutfitMapper()
+    fun provideLingoSnapMapper(): IBrownieOneSideMapper<LingoSnapDTO, LingoSnapBO> = LingoSnapMapper()
 
     @Provides
     @Singleton
-    fun provideSaveOutfitMapper(): IBrownieOneSideMapper<CreateOutfitBO, CreateOutfitDTO> = CreateOutfitMapper()
+    fun provideSaveLingoSnapMapper(): IBrownieOneSideMapper<CreateLingoSnapBO, CreateLingoSnapDTO> = CreateLingoSnapMapper()
 
     @Provides
     @Singleton
@@ -60,7 +60,7 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideAddOutfitMessageMapper(): IBrownieOneSideMapper<AddMessageBO, AddMessageDTO> = AddOutfitMessageMapper()
+    fun provideAddLingoSnapMessageMapper(): IBrownieOneSideMapper<AddMessageBO, AddMessageDTO> = AddLingoSnapMessageMapper()
 
     @Provides
     @Singleton
@@ -88,18 +88,18 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideOutfitRepository(
-        outfitDataSource: IOutfitDataSource,
-        saveOutfitMapper: IBrownieOneSideMapper<CreateOutfitBO, CreateOutfitDTO>,
-        addOutfitMapper: IBrownieOneSideMapper<AddMessageBO, AddMessageDTO>,
-        outfitMapper: IBrownieOneSideMapper<OutfitDTO, OutfitBO>,
+    fun provideLingoSnapRepository(
+        outfitDataSource: ILingoSnapDataSource,
+        saveLingoSnapMapper: IBrownieOneSideMapper<CreateLingoSnapBO, CreateLingoSnapDTO>,
+        addLingoSnapMapper: IBrownieOneSideMapper<AddMessageBO, AddMessageDTO>,
+        lingoSnapMapper: IBrownieOneSideMapper<LingoSnapDTO, LingoSnapBO>,
         @IoDispatcher dispatcher: CoroutineDispatcher
-    ): IOutfitRepository =
-        OutfitRepositoryImpl(
+    ): ILingoSnapRepository =
+        LingoSnapRepositoryImpl(
             outfitDataSource,
-            saveOutfitMapper,
-            addOutfitMapper,
-            outfitMapper,
+            saveLingoSnapMapper,
+            addLingoSnapMapper,
+            lingoSnapMapper,
             dispatcher
         )
 

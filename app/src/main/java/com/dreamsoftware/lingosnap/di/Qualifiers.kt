@@ -48,8 +48,8 @@ annotation class ChatErrorMapper
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
-annotation class OutfitDetailErrorMapper
+annotation class LingoSnapDetailErrorMapper
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
-annotation class CreateOutfitErrorMapper
+annotation class CreateLingoSnapErrorMapper

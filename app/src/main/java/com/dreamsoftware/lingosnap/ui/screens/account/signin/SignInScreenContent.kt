@@ -31,7 +31,8 @@ fun SignInScreenContent(
             onInfoMessageCleared = actionsListener::onInfoMessageCleared,
             onErrorMessageCleared = actionsListener::onErrorMessageCleared,
             errorMessage = errorMessage,
-            screenBackgroundRes = R.drawable.main_background) {
+            screenBackgroundRes = R.drawable.signin_background
+        ) {
             BrownieText(
                 modifier = Modifier
                     .padding(top = 16.dp, bottom = 6.dp)

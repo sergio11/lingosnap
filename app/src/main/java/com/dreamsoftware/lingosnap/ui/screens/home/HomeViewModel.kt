@@ -6,18 +6,18 @@ import com.dreamsoftware.brownie.core.SideEffect
 import com.dreamsoftware.brownie.core.UiState
 import com.dreamsoftware.brownie.utils.EMPTY
 import com.dreamsoftware.lingosnap.di.HomeErrorMapper
-import com.dreamsoftware.lingosnap.domain.model.OutfitBO
-import com.dreamsoftware.lingosnap.domain.usecase.DeleteOutfitByIdUseCase
-import com.dreamsoftware.lingosnap.domain.usecase.GetAllOutfitsByUserUseCase
-import com.dreamsoftware.lingosnap.domain.usecase.SearchOutfitUseCase
+import com.dreamsoftware.lingosnap.domain.model.LingoSnapBO
+import com.dreamsoftware.lingosnap.domain.usecase.DeleteLingoSnapByIdUseCase
+import com.dreamsoftware.lingosnap.domain.usecase.GetAllLingoSnapsByUserUseCase
+import com.dreamsoftware.lingosnap.domain.usecase.SearchLingoSnapUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getAllOutfitsByUserUseCase: GetAllOutfitsByUserUseCase,
-    private val deleteOutfitByIdUseCase: DeleteOutfitByIdUseCase,
-    private val searchOutfitUseCase: SearchOutfitUseCase,
+    private val getAllLingoSnapsByUserUseCase: GetAllLingoSnapsByUserUseCase,
+    private val deleteLingoSnapByIdUseCase: DeleteLingoSnapByIdUseCase,
+    private val searchLingoSnapUseCase: SearchLingoSnapUseCase,
     @HomeErrorMapper private val errorMapper: IBrownieErrorMapper
 ) : BrownieViewModel<HomeUiState, HomeSideEffects>(), HomeScreenActionListener {
 
@@ -27,12 +27,12 @@ class HomeViewModel @Inject constructor(
 
     override fun onGetDefaultState(): HomeUiState = HomeUiState()
 
-    override fun onOutfitClicked(outfitBO: OutfitBO) {
-        launchSideEffect(HomeSideEffects.OpenOutfitChat(outfitBO.uid))
+    override fun onLingoSnapClicked(lingoSnapBO: LingoSnapBO) {
+        launchSideEffect(HomeSideEffects.OpenLingoSnapChat(lingoSnapBO.uid))
     }
 
-    override fun onOutfitDetailClicked(outfitBO: OutfitBO) {
-        launchSideEffect(HomeSideEffects.OpenOutfitDetail(outfitBO.uid))
+    override fun onLingoSnapDetailClicked(lingoSnapBO: LingoSnapBO) {
+        launchSideEffect(HomeSideEffects.OpenLingoSnapDetail(lingoSnapBO.uid))
     }
 
     override fun onSearchQueryUpdated(newSearchQuery: String) {
@@ -40,59 +40,59 @@ class HomeViewModel @Inject constructor(
         onLoadData()
     }
 
-    override fun onOutfitDeleted(outfitBO: OutfitBO) {
-        updateState { it.copy(confirmDeleteOutfit = outfitBO) }
+    override fun onLingoSnapDeleted(lingoSnapBO: LingoSnapBO) {
+        updateState { it.copy(confirmDeleteLingoSnap = lingoSnapBO) }
     }
 
-    override fun onDeleteOutfitConfirmed() {
+    override fun onDeleteLingoSnapConfirmed() {
         doOnUiState {
-            confirmDeleteOutfit?.let { outfit ->
+            confirmDeleteLingoSnap?.let { outfit ->
                 executeUseCaseWithParams(
-                    useCase = deleteOutfitByIdUseCase,
-                    params = DeleteOutfitByIdUseCase.Params(
+                    useCase = deleteLingoSnapByIdUseCase,
+                    params = DeleteLingoSnapByIdUseCase.Params(
                         id = outfit.uid
                     ),
                     onSuccess = {
-                        onDeleteOutfitCompleted(outfit)
+                        onDeleteLingoSnapCompleted(outfit)
                     },
                     onMapExceptionToState = ::onMapExceptionToState
                 )
             }
-            updateState { it.copy(confirmDeleteOutfit = null) }
+            updateState { it.copy(confirmDeleteLingoSnap = null) }
         }
     }
 
-    override fun onDeleteOutfitCancelled() {
-        updateState { it.copy(confirmDeleteOutfit = null) }
+    override fun onDeleteLingoSnapCancelled() {
+        updateState { it.copy(confirmDeleteLingoSnap = null) }
     }
 
     override fun onInfoMessageCleared() {
         updateState { it.copy(infoMessage = null) }
     }
 
-    private fun onDeleteOutfitCompleted(outfit: OutfitBO) {
-        updateState { it.copy(outfitList = it.outfitList.filter { iq -> iq.uid != outfit.uid }) }
+    private fun onDeleteLingoSnapCompleted(outfit: LingoSnapBO) {
+        updateState { it.copy(lingoSnapList = it.lingoSnapList.filter { iq -> iq.uid != outfit.uid }) }
     }
 
-    private fun onLoadOutfitCompleted(data: List<OutfitBO>) {
+    private fun onLoadLingoSnapCompleted(data: List<LingoSnapBO>) {
         updateState {
-            it.copy(outfitList = data)
+            it.copy(lingoSnapList = data)
         }
     }
 
     private fun onLoadData() {
         doOnUiState {
-            if(searchQuery.isEmpty()) {
+            if (searchQuery.isEmpty()) {
                 executeUseCase(
-                    useCase = getAllOutfitsByUserUseCase,
-                    onSuccess = ::onLoadOutfitCompleted,
+                    useCase = getAllLingoSnapsByUserUseCase,
+                    onSuccess = ::onLoadLingoSnapCompleted,
                     onMapExceptionToState = ::onMapExceptionToState
                 )
             } else {
                 executeUseCaseWithParams(
-                    useCase = searchOutfitUseCase,
-                    params = SearchOutfitUseCase.Params(term = searchQuery),
-                    onSuccess = ::onLoadOutfitCompleted,
+                    useCase = searchLingoSnapUseCase,
+                    params = SearchLingoSnapUseCase.Params(term = searchQuery),
+                    onSuccess = ::onLoadLingoSnapCompleted,
                     onMapExceptionToState = ::onMapExceptionToState
                 )
             }
@@ -109,17 +109,17 @@ class HomeViewModel @Inject constructor(
 data class HomeUiState(
     override val isLoading: Boolean = false,
     override val errorMessage: String? = null,
-    val confirmDeleteOutfit: OutfitBO? = null,
+    val confirmDeleteLingoSnap: LingoSnapBO? = null,
     val infoMessage: String? = null,
-    val outfitList: List<OutfitBO> = emptyList(),
+    val lingoSnapList: List<LingoSnapBO> = emptyList(),
     val searchQuery: String = String.EMPTY
-): UiState<HomeUiState>(isLoading, errorMessage) {
+) : UiState<HomeUiState>(isLoading, errorMessage) {
     override fun copyState(isLoading: Boolean, errorMessage: String?): HomeUiState =
         copy(isLoading = isLoading, errorMessage = errorMessage)
 }
 
 
-sealed interface HomeSideEffects: SideEffect {
-    data class OpenOutfitDetail(val id: String): HomeSideEffects
-    data class OpenOutfitChat(val id: String): HomeSideEffects
+sealed interface HomeSideEffects : SideEffect {
+    data class OpenLingoSnapDetail(val id: String) : HomeSideEffects
+    data class OpenLingoSnapChat(val id: String) : HomeSideEffects
 }

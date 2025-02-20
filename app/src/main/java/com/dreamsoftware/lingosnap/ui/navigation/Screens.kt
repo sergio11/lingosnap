@@ -5,7 +5,7 @@ import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.dreamsoftware.lingosnap.ui.screens.chat.ChatScreenArgs
-import com.dreamsoftware.lingosnap.ui.screens.detail.OutfitDetailScreenArgs
+import com.dreamsoftware.lingosnap.ui.screens.detail.LingoSnapDetailScreenArgs
 
 sealed class Screens(val route: String, arguments: List<NamedNavArgument> = emptyList()) {
 
@@ -27,38 +27,38 @@ sealed class Screens(val route: String, arguments: List<NamedNavArgument> = empt
                 val startDestination = Info.route
             }
             data object Info : Screens("info")
-            data object CreateOutfit : Screens("CreateOutfit")
+            data object CreateLingoSnap : Screens("CreateLingoSnap")
             data object Settings: Screens("settings")
-            data object Detail : Screens("detail/{outfit_id}", arguments = listOf(
-                navArgument("outfit_id") {
+            data object Detail : Screens("detail/{lingo_snap_id}", arguments = listOf(
+                navArgument("lingo_snap_id") {
                     type = NavType.StringType
                 }
             )) {
                 fun buildRoute(outfitId: String): String =
                     route.replace(
-                        oldValue = "{outfit_id}",
+                        oldValue = "{lingo_snap_id}",
                         newValue = outfitId
                     )
 
-                fun parseArgs(args: Bundle): OutfitDetailScreenArgs? = with(args) {
-                    getString("outfit_id")?.let {
-                        OutfitDetailScreenArgs(id = it)
+                fun parseArgs(args: Bundle): LingoSnapDetailScreenArgs? = with(args) {
+                    getString("lingo_snap_id")?.let {
+                        LingoSnapDetailScreenArgs(id = it)
                     }
                 }
             }
-            data object Chat : Screens("chat/{outfit_id}", arguments = listOf(
-                navArgument("outfit_id") {
+            data object Chat : Screens("chat/{lingo_snap_id}", arguments = listOf(
+                navArgument("lingo_snap_id") {
                     type = NavType.StringType
                 }
             )) {
                 fun buildRoute(outfitId: String): String =
                     route.replace(
-                        oldValue = "{outfit_id}",
+                        oldValue = "{lingo_snap_id}",
                         newValue = outfitId
                     )
 
                 fun parseArgs(args: Bundle): ChatScreenArgs? = with(args) {
-                    getString("outfit_id")?.let {
+                    getString("lingo_snap_id")?.let {
                         ChatScreenArgs(id = it)
                     }
                 }
