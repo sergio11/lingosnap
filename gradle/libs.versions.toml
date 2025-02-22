@@ -18,10 +18,10 @@ core-splashscreen = "1.0.1"
 androidx-activity-compose = "1.10.0"
 androidx-lifecycle-viewmodel-compose = "2.8.7"
 androidx-lifecycle-runtime-compose = "2.8.7"
-androidx-navigation-compose = "2.8.6"
-androidx-compose-bom = "2025.01.01"  # BOM for Jetpack Compose
-brownie-ui = "0.0.65"               # UI library
-material-icons-extended = "1.7.7"   # Extended material icons for Compose
+androidx-navigation-compose = "2.8.7"
+androidx-compose-bom = "2025.02.00"  # BOM for Jetpack Compose
+brownie-ui = "0.0.73"               # UI library
+material-icons-extended = "1.7.8"   # Extended material icons for Compose
 coil-compose = "2.5.0"              # Coil library for image loading in Compose
 
 # ExoPlayer for media playback
@@ -53,10 +53,10 @@ kotlin = "2.0.0"   # Kotlin plugin version
 daggerHilt = "2.49" # Dagger Hilt for dependency injection
 
 # Firebase Dependencies
-firebase-auth-ktx = "23.1.0"
-firebase-firestore-ktx = "25.1.1"
-firebase-auth = "23.1.0"
-firebase-bom = "33.8.0"  # Firebase BOM
+firebase-auth-ktx = "23.2.0"
+firebase-firestore-ktx = "25.1.2"
+firebase-auth = "23.2.0"
+firebase-bom = "33.9.0"  # Firebase BOM
 firebase-storage-ktx = "21.0.1"
 
 [libraries]
