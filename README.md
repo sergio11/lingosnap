@@ -104,13 +104,67 @@ For more information, visit the [Brownie UI Library on GitHub](https://github.co
 
 Here are some screenshots to showcase **LingoSnap**'s clean and intuitive UI, demonstrating how users can seamlessly interact with the app, take photos, and receive real-time translations and insights.
 
-
-<p align="center">
-  <img width="250px" src="doc/screenshots/previewed/image1.jpeg" />
-  <img width="250px" src="doc/screenshots/previewed/image2.jpeg" />
-  <img width="250px" src="doc/screenshots/previewed/image3.jpeg" />
+<p>
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_9.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_10.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_11.png" />
 </p>
 
+<p>
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_12.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_13.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_14.png" />
+</p>
+
+<p>
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_15.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_16.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_17.png" />
+</p>
+
+<p>
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_18.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_19.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_20.png" />
+</p>
+
+<p>
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_21.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_22.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_23.png" />
+</p>
+
+<p>
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_1.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_2.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_3.png" />
+</p>
+
+<p>
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_4.png" />
+   &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_5.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_6.png" />
+</p>
+
+<p>
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_7.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_8.png" />
+</p>
 
 
 ## Contribution
