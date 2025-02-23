@@ -29,19 +29,19 @@ Slides are built using the  template from [Previewed](https://previewed.app/temp
 
 If you love innovation and high-quality mobile experiences, check out my other apps built with **Jetpack Compose**!  
 
-### 🎨 [ArtNiche – NFT Art Marketplace](https://github.com/sergio11/art_niche_nft_marketplace)  
++ 🎨 [ArtNiche – NFT Art Marketplace](https://github.com/sergio11/art_niche_nft_marketplace)  
 🖼️ A digital marketplace designed for artists and collectors. Buy, sell, and create NFTs in a seamless, intuitive experience.  
 
-### 🌍📸 [LingoSnap – Learn Languages with AI](https://github.com/sergio11/lingosnap)  
++ 🌍📸 [LingoSnap – Learn Languages with AI](https://github.com/sergio11/lingosnap)  
 🗣️ Turn real-world text into interactive lessons. Just snap a photo, and **LingoSnap** will teach you vocabulary, grammar, and pronunciation.  
 
-### 🖼️ [Artify – Virtual Art Gallery](https://github.com/sergio11/artify)  
++ 🖼️ [Artify – Virtual Art Gallery](https://github.com/sergio11/artify)  
 🏛️ Explore art with advanced technology. Discover details and context about artworks simply by capturing an image.  
 
-### 👗 [ChicFit – Your AI Fashion Assistant](https://github.com/sergio11/chicfit)  
++ 👗 [ChicFit – Your AI Fashion Assistant](https://github.com/sergio11/chicfit)  
 📸🤖 Get outfit suggestions and style recommendations powered by AI. Always look your best for any occasion!  
 
-### 🔍📚 [Inquize – Capture Curiosity. Unlock Knowledge.](https://github.com/sergio11/inquize_android)  
++ 🔍📚 [Inquize – Capture Curiosity. Unlock Knowledge.](https://github.com/sergio11/inquize_android)  
 💡 Transform your device into a gateway to knowledge. Just point your camera at an object, place, or concept, and **Inquize** will provide real-time answers, turning curiosity into a learning experience.  
 
 ## 🚀 Key Features  
