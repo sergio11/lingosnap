@@ -42,7 +42,10 @@ If you love innovation and high-quality mobile experiences, check out my other a
 📸🤖 Get outfit suggestions and style recommendations powered by AI. Always look your best for any occasion!  
 
 + 🔍📚 [Inquize – Capture Curiosity. Unlock Knowledge.](https://github.com/sergio11/inquize_android)  
-💡 Transform your device into a gateway to knowledge. Just point your camera at an object, place, or concept, and **Inquize** will provide real-time answers, turning curiosity into a learning experience.  
+💡 Transform your device into a gateway to knowledge. Just point your camera at an object, place, or concept, and **Inquize** will provide real-time answers, turning curiosity into a learning experience.
+
+ + 🔒 [VaultKeeper – Elevating Your Digital Security for Passwords and Banking Cards](https://github.com/sergio11/vault_keeper_android)  
+💳 Securely manage your passwords and banking information with **VaultKeeper**. Enjoy hassle-free access to your accounts and cards within an encrypted vault, ensuring your data remains safe, even if your device is lost or stolen.  
 
 ## 🚀 Key Features  
 
