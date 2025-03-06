@@ -52,7 +52,7 @@ class FirebaseModule {
 
     @Provides
     @Singleton
-    fun provideAddOutfitMessageRemoteMapper(): IBrownieOneSideMapper<AddMessageDTO, List<Map<String, String>>> = AddLingoSnapMessageRemoteMapper()
+    fun provideAddLingoSnapMessageRemoteMapper(): IBrownieOneSideMapper<AddMessageDTO, List<Map<String, String>>> = AddLingoSnapMessageRemoteMapper()
 
     /**
      * Provides a singleton instance of FirebaseAuth.
@@ -106,16 +106,16 @@ class FirebaseModule {
 
     @Provides
     @Singleton
-    fun provideOutfitDataSource(
+    fun provideLingoSnapDataSource(
         firestore: FirebaseFirestore,
         saveUserQuestionMapper: IBrownieOneSideMapper<CreateLingoSnapDTO, Map<String, Any?>>,
-        addOutfitMessageMapper: IBrownieOneSideMapper<AddMessageDTO, List<Map<String, String>>>,
+        addLingoSnapMessageMapper: IBrownieOneSideMapper<AddMessageDTO, List<Map<String, String>>>,
         userQuestionMapper: IBrownieOneSideMapper<Map<String, Any?>, LingoSnapDTO>,
         @IoDispatcher dispatcher: CoroutineDispatcher
     ): ILingoSnapDataSource = LingoSnapDataSourceImpl(
         firestore,
         saveUserQuestionMapper,
-        addOutfitMessageMapper,
+        addLingoSnapMessageMapper,
         userQuestionMapper,
         dispatcher
     )

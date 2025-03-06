@@ -42,7 +42,7 @@ class ChatViewModel @Inject constructor(
         executeUseCaseWithParams(
             useCase = getLingoSnapByIdUseCase,
             params = GetLingoSnapByIdUseCase.Params(id = id),
-            onSuccess = ::onGetOutfitCompletedSuccessfully,
+            onSuccess = ::onGetLingoSnapCompletedSuccessfully,
             onMapExceptionToState = ::onMapExceptionToState
         )
     }
@@ -118,12 +118,12 @@ class ChatViewModel @Inject constructor(
                 lingoSnapId = uiState.value.lingoSnapId,
                 question = transcription
             ),
-            onSuccess = ::onGetOutfitCompletedSuccessfully,
+            onSuccess = ::onGetLingoSnapCompletedSuccessfully,
             onMapExceptionToState = ::onMapExceptionToState
         )
     }
 
-    private fun onGetOutfitCompletedSuccessfully(lingoSnapBO: LingoSnapBO) {
+    private fun onGetLingoSnapCompletedSuccessfully(lingoSnapBO: LingoSnapBO) {
         updateState { it.copy(lingoSnapId = lingoSnapBO.uid, messageList = lingoSnapBO.messages) }
         doOnUiState {
             if(!isAssistantMuted) {

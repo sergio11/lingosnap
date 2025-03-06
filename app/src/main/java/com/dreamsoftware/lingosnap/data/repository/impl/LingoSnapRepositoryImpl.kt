@@ -25,18 +25,18 @@ import com.dreamsoftware.lingosnap.domain.repository.ILingoSnapRepository
 import kotlinx.coroutines.CoroutineDispatcher
 
 internal class LingoSnapRepositoryImpl(
-    private val outfitDataSource: ILingoSnapDataSource,
-    private val saveOutfitMapper: IBrownieOneSideMapper<CreateLingoSnapBO, CreateLingoSnapDTO>,
-    private val addOutfitMapper: IBrownieOneSideMapper<AddMessageBO, AddMessageDTO>,
-    private val outfitMapper: IBrownieOneSideMapper<LingoSnapDTO, LingoSnapBO>,
+    private val lingoSnapDataSource: ILingoSnapDataSource,
+    private val saveLingoSnapMapper: IBrownieOneSideMapper<CreateLingoSnapBO, CreateLingoSnapDTO>,
+    private val addLingoSnapMapper: IBrownieOneSideMapper<AddMessageBO, AddMessageDTO>,
+    private val lingoSnapMapper: IBrownieOneSideMapper<LingoSnapDTO, LingoSnapBO>,
     dispatcher: CoroutineDispatcher
 ): SupportRepositoryImpl(dispatcher), ILingoSnapRepository {
 
     @Throws(SearchLingoSnapException::class)
     override suspend fun search(userId: String, term: String): List<LingoSnapBO> = safeExecute {
         try {
-            outfitDataSource.search(userId, term)
-                .let(outfitMapper::mapInListToOutList)
+            lingoSnapDataSource.search(userId, term)
+                .let(lingoSnapMapper::mapInListToOutList)
                 .toList()
         } catch (ex: SearchLingoSnapRemoteDataException) {
             ex.printStackTrace()
@@ -47,22 +47,22 @@ internal class LingoSnapRepositoryImpl(
     @Throws(SaveLingoSnapException::class)
     override suspend fun create(data: CreateLingoSnapBO): LingoSnapBO = safeExecute {
         try {
-            with(outfitDataSource) {
-                create(saveOutfitMapper.mapInToOut(data))
-                outfitMapper.mapInToOut(fetchById(userId = data.userId, id = data.uid))
+            with(lingoSnapDataSource) {
+                create(saveLingoSnapMapper.mapInToOut(data))
+                lingoSnapMapper.mapInToOut(fetchById(userId = data.userId, id = data.uid))
             }
         } catch (ex: CreateLingoSnapRemoteDataException) {
             ex.printStackTrace()
-            throw SaveLingoSnapException("An error occurred when trying to save outfit", ex)
+            throw SaveLingoSnapException("An error occurred when trying to save lingoSnap", ex)
         }
     }
 
     @Throws(AddLingoSnapMessageException::class)
     override suspend fun addMessage(data: AddMessageBO): LingoSnapBO = safeExecute {
         try {
-            with(outfitDataSource) {
-                addMessage(addOutfitMapper.mapInToOut(data))
-                outfitMapper.mapInToOut(fetchById(userId = data.userId, id = data.uid))
+            with(lingoSnapDataSource) {
+                addMessage(addLingoSnapMapper.mapInToOut(data))
+                lingoSnapMapper.mapInToOut(fetchById(userId = data.userId, id = data.uid))
             }
         } catch (ex: AddLingoSnapMessageRemoteDataException) {
             ex.printStackTrace()
@@ -74,10 +74,10 @@ internal class LingoSnapRepositoryImpl(
     override suspend fun deleteById(userId: String, id: String) {
         safeExecute {
             try {
-                outfitDataSource.deleteById(userId = userId, id = id)
+                lingoSnapDataSource.deleteById(userId = userId, id = id)
             } catch (ex: DeleteLingoSnapByIdRemoteDataException) {
                 ex.printStackTrace()
-                throw DeleteLingoSnapByIdException("An error occurred when trying to delete the outfit", ex)
+                throw DeleteLingoSnapByIdException("An error occurred when trying to delete the lingoSnap", ex)
             }
         }
     }
@@ -85,19 +85,19 @@ internal class LingoSnapRepositoryImpl(
     @Throws(FetchLingoSnapByIdException::class)
     override suspend fun fetchById(userId: String, id: String): LingoSnapBO = safeExecute {
         try {
-            outfitDataSource.fetchById(userId = userId, id = id)
-                .let(outfitMapper::mapInToOut)
+            lingoSnapDataSource.fetchById(userId = userId, id = id)
+                .let(lingoSnapMapper::mapInToOut)
         } catch (ex: FetchLingoSnapByIdRemoteDataException) {
             ex.printStackTrace()
-            throw FetchLingoSnapByIdException("An error occurred when trying to fetch the outfit data", ex)
+            throw FetchLingoSnapByIdException("An error occurred when trying to fetch the lingoSnap data", ex)
         }
     }
 
     @Throws(FetchAllLingoSnapException::class)
     override suspend fun fetchAllByUserId(userId: String): List<LingoSnapBO> = safeExecute {
         try {
-            outfitDataSource.fetchAllByUserId(userId = userId)
-                .let(outfitMapper::mapInListToOutList)
+            lingoSnapDataSource.fetchAllByUserId(userId = userId)
+                .let(lingoSnapMapper::mapInListToOutList)
                 .toList()
         } catch (ex: FetchAllLingoSnapRemoteDataException) {
             ex.printStackTrace()

@@ -89,14 +89,14 @@ class RepositoryModule {
     @Provides
     @Singleton
     fun provideLingoSnapRepository(
-        outfitDataSource: ILingoSnapDataSource,
+        lingoSnapDataSource: ILingoSnapDataSource,
         saveLingoSnapMapper: IBrownieOneSideMapper<CreateLingoSnapBO, CreateLingoSnapDTO>,
         addLingoSnapMapper: IBrownieOneSideMapper<AddMessageBO, AddMessageDTO>,
         lingoSnapMapper: IBrownieOneSideMapper<LingoSnapDTO, LingoSnapBO>,
         @IoDispatcher dispatcher: CoroutineDispatcher
     ): ILingoSnapRepository =
         LingoSnapRepositoryImpl(
-            outfitDataSource,
+            lingoSnapDataSource,
             saveLingoSnapMapper,
             addLingoSnapMapper,
             lingoSnapMapper,

@@ -20,9 +20,9 @@ import kotlinx.coroutines.tasks.await
 
 internal class LingoSnapDataSourceImpl(
     private val firestore: FirebaseFirestore,
-    private val saveOutfitMapper: IBrownieOneSideMapper<CreateLingoSnapDTO, Map<String, Any?>>,
-    private val addOutfitMessageMapper: IBrownieOneSideMapper<AddMessageDTO, List<Map<String, String>>>,
-    private val outfitMapper: IBrownieOneSideMapper<Map<String, Any?>, LingoSnapDTO>,
+    private val saveLingoSnapMapper: IBrownieOneSideMapper<CreateLingoSnapDTO, Map<String, Any?>>,
+    private val addLingoSnapMessageMapper: IBrownieOneSideMapper<AddMessageDTO, List<Map<String, String>>>,
+    private val lingoSnapMapper: IBrownieOneSideMapper<Map<String, Any?>, LingoSnapDTO>,
     dispatcher: CoroutineDispatcher
 ): SupportDataSourceImpl(dispatcher), ILingoSnapDataSource {
 
@@ -50,7 +50,7 @@ internal class LingoSnapDataSourceImpl(
                 .get()
                 .await()
             snapshot.documents.map { document ->
-                outfitMapper.mapInToOut(
+                lingoSnapMapper.mapInToOut(
                     document.data ?: throw IllegalStateException("Document data is null")
                 )
             }
@@ -67,7 +67,7 @@ internal class LingoSnapDataSourceImpl(
                 .document(data.userId)
                 .collection(SUB_COLLECTION_NAME)
                 .document(data.uid)
-                .set(saveOutfitMapper.mapInToOut(data))
+                .set(saveLingoSnapMapper.mapInToOut(data))
                 .await()
         },
         onErrorOccurred = { ex ->
@@ -78,7 +78,7 @@ internal class LingoSnapDataSourceImpl(
     @Throws(AddLingoSnapMessageRemoteDataException::class)
     override suspend fun addMessage(data: AddMessageDTO): Unit = safeExecution(
         onExecuted = {
-            val messages = addOutfitMessageMapper.mapInToOut(data)
+            val messages = addLingoSnapMessageMapper.mapInToOut(data)
             val documentRef = collection
                 .document(data.userId)
                 .collection(SUB_COLLECTION_NAME)
@@ -102,7 +102,7 @@ internal class LingoSnapDataSourceImpl(
                     .document(id)
                     .get()
                     .await()
-                outfitMapper.mapInToOut(
+                lingoSnapMapper.mapInToOut(
                     document.data ?: throw IllegalStateException("Document data is null")
                 )
             },
@@ -124,7 +124,7 @@ internal class LingoSnapDataSourceImpl(
                 .get()
                 .await()
             snapshot.documents.map { document ->
-                outfitMapper.mapInToOut(
+                lingoSnapMapper.mapInToOut(
                     document.data ?: throw IllegalStateException("Document data is null")
                 )
             }

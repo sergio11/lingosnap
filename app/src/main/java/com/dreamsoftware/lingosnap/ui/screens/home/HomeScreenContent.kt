@@ -38,7 +38,7 @@ import com.dreamsoftware.brownie.component.BrownieTextTypeEnum
 import com.dreamsoftware.brownie.component.screen.BrownieScreenContent
 import com.dreamsoftware.brownie.utils.EMPTY
 import com.dreamsoftware.lingosnap.R
-import com.dreamsoftware.lingosnap.ui.screens.core.CommonOutfitImage
+import com.dreamsoftware.lingosnap.ui.screens.core.CommonLingoSnapImage
 
 @Composable
 fun HomeScreenContent(
@@ -130,7 +130,7 @@ fun HomeScreenContent(
                             iconRes = R.drawable.ic_no_data_found
                         )
                     } else {
-                        OutfitList(
+                        LingoSnapList(
                             uiState = uiState,
                             actionListener = actionListener,
                             nestedScrollConnection = nestedScrollConnection
@@ -145,7 +145,7 @@ fun HomeScreenContent(
 
 
 @Composable
-private fun OutfitList(
+private fun LingoSnapList(
     uiState: HomeUiState,
     actionListener: HomeScreenActionListener,
     nestedScrollConnection: NestedScrollConnection
@@ -162,20 +162,20 @@ private fun OutfitList(
                     .nestedScroll(nestedScrollConnection),
             ) {
                 items(lingoSnapList.size) { idx ->
-                    val outfit = lingoSnapList[idx]
+                    val lingoSnap = lingoSnapList[idx]
                     BrownieCard(
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(10.dp)
                             .height(250.dp)
                             .clickable {
-                                actionListener.onLingoSnapClicked(outfit)
+                                actionListener.onLingoSnapClicked(lingoSnap)
                             },
                         border = BorderStroke(5.dp, secondary)
                     ) {
-                        CommonOutfitImage(
+                        CommonLingoSnapImage(
                             modifier = Modifier.fillMaxSize(),
-                            imageUrl = outfit.imageUrl
+                            imageUrl = lingoSnap.imageUrl
                         )
                         Row(
                             modifier = Modifier
@@ -190,7 +190,7 @@ private fun OutfitList(
                                 iconTintColor = primary,
                                 iconRes = R.drawable.ic_detail
                             ) {
-                                actionListener.onLingoSnapDetailClicked(outfit)
+                                actionListener.onLingoSnapDetailClicked(lingoSnap)
                             }
                             BrownieIconButton(
                                 containerSize = 40.dp,
@@ -198,7 +198,7 @@ private fun OutfitList(
                                 iconTintColor = primary,
                                 iconRes = R.drawable.ic_delete
                             ) {
-                                actionListener.onLingoSnapDeleted(outfit)
+                                actionListener.onLingoSnapDeleted(lingoSnap)
                             }
                         }
                         BrownieText(
@@ -208,7 +208,7 @@ private fun OutfitList(
                                 .padding(horizontal = 15.dp, vertical = 20.dp)
                                 .align(Alignment.BottomStart),
                             type = BrownieTextTypeEnum.LABEL_MEDIUM,
-                            titleText = outfit.question,
+                            titleText = lingoSnap.question,
                             textAlign = TextAlign.Center,
                             maxLines = 2,
                             textBold = true,

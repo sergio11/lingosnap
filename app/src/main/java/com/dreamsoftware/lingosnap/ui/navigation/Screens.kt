@@ -34,10 +34,10 @@ sealed class Screens(val route: String, arguments: List<NamedNavArgument> = empt
                     type = NavType.StringType
                 }
             )) {
-                fun buildRoute(outfitId: String): String =
+                fun buildRoute(lingoSnapId: String): String =
                     route.replace(
                         oldValue = "{lingo_snap_id}",
-                        newValue = outfitId
+                        newValue = lingoSnapId
                     )
 
                 fun parseArgs(args: Bundle): LingoSnapDetailScreenArgs? = with(args) {
@@ -51,10 +51,10 @@ sealed class Screens(val route: String, arguments: List<NamedNavArgument> = empt
                     type = NavType.StringType
                 }
             )) {
-                fun buildRoute(outfitId: String): String =
+                fun buildRoute(lingoSnapId: String): String =
                     route.replace(
                         oldValue = "{lingo_snap_id}",
-                        newValue = outfitId
+                        newValue = lingoSnapId
                     )
 
                 fun parseArgs(args: Bundle): ChatScreenArgs? = with(args) {
