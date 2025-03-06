@@ -31,7 +31,7 @@ import com.dreamsoftware.lingosnap.R
 import com.dreamsoftware.lingosnap.ui.components.AnimatedMicButtonWithTranscript
 import com.dreamsoftware.lingosnap.ui.components.CameraPreview
 import com.dreamsoftware.lingosnap.ui.components.LoadingDialog
-import com.dreamsoftware.lingosnap.ui.screens.core.CommonOutfitImage
+import com.dreamsoftware.lingosnap.ui.screens.core.CommonLingoSnapImage
 
 @Composable
 internal fun CreateLingoSnapScreenContent(
@@ -51,12 +51,12 @@ internal fun CreateLingoSnapScreenContent(
             onErrorMessageCleared = actionListener::onErrorMessageCleared,
         ) {
             if (showConfirm) {
-                ConfirmOutfit(
+                ConfirmLingoSnap(
                     uiState = uiState,
                     actionListener = actionListener,
                 )
             } else {
-                CreateOutfit(
+                CreateLingoSnap(
                     uiState = uiState,
                     actionListener = actionListener,
                     lifecycleCameraController = lifecycleCameraController
@@ -67,7 +67,7 @@ internal fun CreateLingoSnapScreenContent(
 }
 
 @Composable
-private fun CreateOutfit(
+private fun CreateLingoSnap(
     uiState: CreateLingoSnapUiState,
     actionListener: CreateLingoSnapScreenActionListener,
     lifecycleCameraController: LifecycleCameraController
@@ -107,7 +107,7 @@ private fun CreateOutfit(
 }
 
 @Composable
-private fun ColumnScope.ConfirmOutfit(
+private fun ColumnScope.ConfirmLingoSnap(
     uiState: CreateLingoSnapUiState,
     actionListener: CreateLingoSnapScreenActionListener
 ) {
@@ -126,7 +126,7 @@ private fun ColumnScope.ConfirmOutfit(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(modifier = Modifier.height(8.dp))
-            CommonOutfitImage(
+            CommonLingoSnapImage(
                 modifier = Modifier
                     .padding(horizontal = 16.dp, vertical = 10.dp)
                     .width(250.dp)

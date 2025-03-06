@@ -46,14 +46,14 @@ class HomeViewModel @Inject constructor(
 
     override fun onDeleteLingoSnapConfirmed() {
         doOnUiState {
-            confirmDeleteLingoSnap?.let { outfit ->
+            confirmDeleteLingoSnap?.let { lingoSnap ->
                 executeUseCaseWithParams(
                     useCase = deleteLingoSnapByIdUseCase,
                     params = DeleteLingoSnapByIdUseCase.Params(
-                        id = outfit.uid
+                        id = lingoSnap.uid
                     ),
                     onSuccess = {
-                        onDeleteLingoSnapCompleted(outfit)
+                        onDeleteLingoSnapCompleted(lingoSnap)
                     },
                     onMapExceptionToState = ::onMapExceptionToState
                 )
@@ -70,8 +70,8 @@ class HomeViewModel @Inject constructor(
         updateState { it.copy(infoMessage = null) }
     }
 
-    private fun onDeleteLingoSnapCompleted(outfit: LingoSnapBO) {
-        updateState { it.copy(lingoSnapList = it.lingoSnapList.filter { iq -> iq.uid != outfit.uid }) }
+    private fun onDeleteLingoSnapCompleted(lingoSnap: LingoSnapBO) {
+        updateState { it.copy(lingoSnapList = it.lingoSnapList.filter { iq -> iq.uid != lingoSnap.uid }) }
     }
 
     private fun onLoadLingoSnapCompleted(data: List<LingoSnapBO>) {

@@ -53,7 +53,7 @@ class UiModule {
     @Provides
     @ViewModelScoped
     @LingoSnapDetailErrorMapper
-    fun provideOutfitDetailErrorMapper(
+    fun provideLingoSnapDetailErrorMapper(
         @ApplicationContext context: Context
     ): IBrownieErrorMapper =
         LingoSnapDetailScreenSimpleErrorMapper(context = context)
@@ -62,7 +62,7 @@ class UiModule {
     @Provides
     @ViewModelScoped
     @CreateLingoSnapErrorMapper
-    fun provideCreateOutfitScreenSimpleErrorMapper(
+    fun provideCreateLingoSnapScreenSimpleErrorMapper(
         @ApplicationContext context: Context
     ): IBrownieErrorMapper =
         LingoSnapDetailScreenSimpleErrorMapper(context = context)
